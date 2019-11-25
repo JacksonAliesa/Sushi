@@ -10,7 +10,7 @@ USE sushi_db;
 CREATE TABLE sushi (
 
   
-   id INTEGER(11) AUTO_INCREMENT NOT NULL,
+   id INT AUTO_INCREMENT NOT NULL,
   sushi_name VARCHAR(30) NOT NULL,
   -- Makes a boolean column called "has_pet" which cannot contain null --
   devoured BOOLEAN NOT NULL,
