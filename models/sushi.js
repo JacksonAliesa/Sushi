@@ -1,23 +1,23 @@
 //import the orm to store functions that interact with the DB
-var orm = require("../config/orm");
+var orm = require("../config/orm.js");
 
 
 var sushiTypes = {
-    all: function(cb) {
-        orm.all("sushi", function(res){
+    selectAll: function(cb) {
+        orm.selectAll("sushi", function(res){
             cb(res);
         })
     },
 
 //these interact with the db to decide what creat/updates/delete
 
-create: function(cols, vals, cb){
-    orm.create("sushi", cols, vals, function(res){
+insertOne: function(cols, vals, cb){
+    orm.insertOne("sushi", cols, vals, function(res){
         cb(res)
     })
 },
-update: function(objColVals, condition, cb){
-    orm.update("sushi", objColVals, condition, function(res){
+updateOne: function(objColVals, condition, cb){
+    orm.updateOne("sushi", objColVals, condition, function(res){
         cb(res);
     })
 },
@@ -27,5 +27,7 @@ delete: function(condition, cb){
     })
 }
 
-}
+};
 //end of sushiTypes variable that stores the functions for Create update and delete
+
+module.exports = sushiTypes;
