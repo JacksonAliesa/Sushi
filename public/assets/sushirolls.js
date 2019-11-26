@@ -5,8 +5,9 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
+      //the new sushi will be inserted in this section of the body when the add buttn is clicked
       var newSushi = {
-        name: $("#addSushi").val().trim(),
+        name: $("#orderRoll").val().trim(),
         devoured: 0
        
       };
@@ -26,7 +27,7 @@ $(function() {
   
 
     //this is the onclick function for the delete button
-    $(".devouredSushi").on("click", function(event) {
+    $(".deleteSushi").on("click", function(event) {
       var id = $(this).data("id");
   
       // Send the DELETE request.

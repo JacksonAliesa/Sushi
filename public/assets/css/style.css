@@ -17,3 +17,13 @@ li {
   .form-group {
     margin-bottom: 5px;
   }
+
+  body{
+    background-color: lightsalmon;
+    text-align: center;
+  }
+
+  .jumbotron{
+    background-color:  lightyellow;
+    background-image: image("sushi");
+  }
