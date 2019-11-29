@@ -1,10 +1,10 @@
 <li>
 	{{sushi_name}}
 
-	<button class="devouredSushi" data-id="{{id}}" data-newSushi="{{devoured}}">
+	<button class="devouredSushi" data-id="{{id}}" > 
 		{{!-- {{#if devoured}}Eat!{{else}}All Gone!{{/if}} --}}
-		<span>{{this.id}} - {{this.sushi_name}}</span>
+		{{!-- <span>{{this.id}} - {{this.sushi_name}}</span>
 	</button>
 
-	<button id="devourRoll" data-id="{{this.id}}">DEVOURED!</button>
+	<button id="devourRoll" data-id="{{this.id}}" data-newSushi="{{devoured}}">DEVOURED!</button>
 </li>

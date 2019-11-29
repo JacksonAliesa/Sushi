@@ -1,62 +1,77 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
         <h1>Eat Sushi, It's Good!</h1>
-      
+
         <br>
         <panel>
             {{!-- <h2>Add A Sushi Roll</h2> --}}
             <form class="create-form">
                 <div class="form-group">
                     <label for="sushiName"></label>
-                    <input type="text" id="sushiName" name="name">
+                    <input type="text" id="addSushi" name="name">
                 </div>
                 <button type="submit" id="addSushi">Order A Favorite.</button>
             </form>
         </panel>
     </div>
     <center>
-    <!--user input for order here-->
-    <div class="row">
-        <div class="col-sm-4 offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="orderRoll"><strong>Sushi Rolls Here</strong></div>
-                <div class="panel-body">
-                    <ul>
+        <!--user input for order here-->
+        <div class="row">
+            <div class="col-sm-4 offset-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="orderRoll"><strong>Sushi Rolls Here</strong></div>
+                            <div class="panel-body">
+                                <ul>
 
-                        {{#each sushi}}
-                        {{#unless devoured}}
-                        {{> sushi/sushi-block devoured=false}}
-                        {{/unless}}
-                        {{/each}}
-                    </ul>
+                                    {{#each sushi}}
+                                    {{#unless devoured}}
+                                    <span>{{this.id}} - {{this.sushi_name}}</span>
+                                    <button type="button" class="eatRoll btn" id="eatRoll"
+                                        data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
 
+                                    {{/unless}}
+                                    {{/each}}
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!--devoured rolls will transfer here-->
+
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="panel-heading"><strong>Demolished Rolls</strong></div>
+                            <div class="panel-body">
+
+
+                                <ul>
+                                    {{#each sushi}}
+                                    {{#if devoured}}
+                                    <span>{{this.id}} - {{this.sushi_name}}</span>
+                                    <button type="button" class="devourRoll btn btn-info" id="eatRoll"
+                                        data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
+
+                                    {{/if}}
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
-   
-    <!--devoured rolls will transfer here-->
 
-        <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="devourRoll"><strong>Demolished Rolls</strong></div>
-                <div class="panel-body">
-                    
-
-                    <ul>
-                        {{#each sushi}}
-                        {{#if devoured}}
-
-                        {{> sushi/sushi-block devoured=true}}
-                        {{/if}}
-                        {{/each}}
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-         </div>
-   
 
 
 

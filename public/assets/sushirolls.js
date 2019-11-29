@@ -7,7 +7,7 @@ $(function() {
   
       //the new sushi will be inserted in this section of the body when the add buttn is clicked
       var newSushi = {
-        name: $("#orderRoll").val().trim(),
+        name: $("#addSushi").val().trim(),
         devoured: 0
        
       };
@@ -24,6 +24,25 @@ $(function() {
         }
       );
     });
+
+    $('#devourRoll').on('click', function(event){
+    
+      var id = $(this).data("id");
+
+      var updateDevour = {
+       devoured: 1
+      }
+      $.ajax("/api/sushi/" + id, {
+        type: "PUT", 
+        data: updateDevour
+      }).then(
+        function() {
+          console.log("deleted sushi", id);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    })
   
 
     //this is the onclick function for the delete button
@@ -33,6 +52,7 @@ $(function() {
       // Send the DELETE request.
       $.ajax("/api/sushi/" + id, {
         type: "DELETE"
+      
       }).then(
         function() {
           console.log("deleted sushi", id);
