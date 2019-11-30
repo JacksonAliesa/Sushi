@@ -11,8 +11,8 @@ var sushiTypes = {
 
 //these interact with the db to decide what creat/updates/delete
 
-insertOne: function(cols, vals, cb){
-    orm.insertOne("sushi", cols, vals, function(res){
+create: function(cols, vals, cb){
+    orm.create("sushi", cols, vals, function(res){
         cb(res)
     })
 },

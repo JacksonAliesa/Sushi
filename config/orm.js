@@ -19,8 +19,8 @@ var orm = {
 },
 //end of select all function
 
-insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table + "(" + cols.toString() + ")" + "VALUES ??" + vals + ") ";
+create: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO " + table + "(" + cols.toString() + ")" + "VALUES" + vals + ") ";
     console.log(queryString);
     connection.query(queryString, function (err, result) {
 

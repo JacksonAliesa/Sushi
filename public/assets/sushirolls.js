@@ -49,6 +49,7 @@ $(function() {
     $(".deleteBtn").on("click", function(event) {
       var id = $(this).data("id");
   
+      console.log("delete button was clicked")
       // Send the DELETE request.
       $.ajax("/api/sushi/" + id, {
         type: "DELETE"
