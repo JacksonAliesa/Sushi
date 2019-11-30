@@ -32,7 +32,7 @@ router.get("/", function(req, res) {
   
     console.log("condition", condition);
   
-    sushi.update({
+    sushi.updateOne({
       sushi_name: req.body.sushi_name
     }, condition, function(result) {
       if (result.changedRows == 0) {
@@ -47,8 +47,8 @@ router.get("/", function(req, res) {
   router.delete("/api/sushi/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
-    sushi.delete(condition, function(result) {
-      if (result.affectedRows == 0) {
+    sushi.delete(condition, function(res) {
+      if (res.affectedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
       } else {

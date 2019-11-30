@@ -27,9 +27,7 @@
 
                                     {{#each sushi}}
                                     {{#unless devoured}}
-                                    <span>{{this.id}} - {{this.sushi_name}}</span>
-                                    <button type="button" class="eatRoll btn" id="eatRoll"
-                                        data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
+                                    {{> sushi/sushi-block devoured=false}}
 
                                     {{/unless}}
                                     {{/each}}
@@ -56,9 +54,7 @@
                                 <ul>
                                     {{#each sushi}}
                                     {{#if devoured}}
-                                    <span>{{this.id}} - {{this.sushi_name}}</span>
-                                    <button type="button" class="devourRoll btn btn-info" id="eatRoll"
-                                        data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
+                                    {{> sushi/sushi-block devoured=true}}
 
                                     {{/if}}
                                     {{/each}}
