@@ -5,6 +5,7 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
+      console.log($('#addSushi').val())
       //the new sushi will be inserted in this section of the body when the add buttn is clicked
       var newSushi = {
         sushi_name: $("#addSushi").val().trim(),
