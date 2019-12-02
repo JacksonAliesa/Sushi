@@ -22,7 +22,7 @@ var orm = {
 create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table + "(" + cols.toString() + ")" + "VALUES" + vals + ") ";
     console.log(queryString);
-    connection.query(queryString, function (err, result) {
+    connection.query(queryString, function (err, res) {
 
         if (err) {
             throw err;
