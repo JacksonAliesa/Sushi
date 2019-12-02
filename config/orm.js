@@ -67,13 +67,13 @@ create: function(table, cols, vals, cb) {
 
     console.log(queryString); 
     
-    {
-
+    connection.query(queryString, vals, function(err, result) {
         if (err) {
-            throw err;
+          throw err;
         }
-        cb(res);
-    };
+  
+        cb(result);
+      });
 },
 //end of insert function
 
